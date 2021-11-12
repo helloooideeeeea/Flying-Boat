@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="RegisterCloudStorage" customModule="FlyingBoat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="230"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <tabView translatesAutoresizingMaskIntoConstraints="NO" id="wa0-Du-Pzh">
+                    <rect key="frame" x="-7" y="-10" width="353" height="246"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="S3" identifier="" id="Pig-br-J6T">
+                            <view key="view" id="xI6-uG-sLU">
+                                <rect key="frame" x="10" y="33" width="333" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="i7F-7R-4Wp">
+                                        <rect key="frame" x="15" y="140" width="303" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-K4-HWD">
+                                                <rect key="frame" x="13" y="12" width="72" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Access key" id="TcC-QO-QOT">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TaW-oh-r5h">
+                                                <rect key="frame" x="108" y="10" width="180" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="I8p-M7-nNF"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="wdX-UP-hoQ">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="TaW-oh-r5h" firstAttribute="centerY" secondItem="i7F-7R-4Wp" secondAttribute="centerY" id="Lde-pq-IMB"/>
+                                            <constraint firstAttribute="trailing" secondItem="TaW-oh-r5h" secondAttribute="trailing" constant="15" id="b2T-MM-JYp"/>
+                                            <constraint firstAttribute="height" constant="40" id="eET-ei-NUk"/>
+                                            <constraint firstItem="t0d-K4-HWD" firstAttribute="leading" secondItem="i7F-7R-4Wp" secondAttribute="leading" constant="15" id="msh-3H-SjC"/>
+                                            <constraint firstItem="t0d-K4-HWD" firstAttribute="centerY" secondItem="i7F-7R-4Wp" secondAttribute="centerY" id="v0c-PW-YIT"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="1P3-rB-hXI">
+                                        <rect key="frame" x="15" y="80" width="303" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4sl-fL-vP9">
+                                                <rect key="frame" x="13" y="12" width="68" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Secret key" id="w8b-ka-WUd">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I5G-dL-xE5" customClass="NSSecureTextField">
+                                                <rect key="frame" x="108" y="10" width="180" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="F3g-wb-DTQ"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7rA-Wa-u0U">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4sl-fL-vP9" firstAttribute="centerY" secondItem="1P3-rB-hXI" secondAttribute="centerY" id="Ycg-YI-SUP"/>
+                                            <constraint firstItem="I5G-dL-xE5" firstAttribute="centerY" secondItem="1P3-rB-hXI" secondAttribute="centerY" id="gBb-42-1w6"/>
+                                            <constraint firstAttribute="trailing" secondItem="I5G-dL-xE5" secondAttribute="trailing" constant="15" id="lZP-7k-PhX"/>
+                                            <constraint firstItem="4sl-fL-vP9" firstAttribute="leading" secondItem="1P3-rB-hXI" secondAttribute="leading" constant="15" id="miB-rr-O1D"/>
+                                            <constraint firstAttribute="height" constant="40" id="rQg-1t-OFk"/>
+                                        </constraints>
+                                    </customView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S2O-fv-9Vv">
+                                        <rect key="frame" x="248" y="23" width="77" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V3g-cB-4Th">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="s3SubmitClicked:" target="c22-O7-iKe" id="pbZ-h3-iHr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1P3-rB-hXI" firstAttribute="top" secondItem="i7F-7R-4Wp" secondAttribute="bottom" constant="20" id="43P-cl-RaU"/>
+                                    <constraint firstItem="i7F-7R-4Wp" firstAttribute="leading" secondItem="xI6-uG-sLU" secondAttribute="leading" constant="15" id="M3o-Qc-f8B"/>
+                                    <constraint firstItem="1P3-rB-hXI" firstAttribute="leading" secondItem="xI6-uG-sLU" secondAttribute="leading" constant="15" id="PWm-Dg-Ujr"/>
+                                    <constraint firstItem="S2O-fv-9Vv" firstAttribute="top" secondItem="1P3-rB-hXI" secondAttribute="bottom" constant="30" id="cJf-c5-i5W"/>
+                                    <constraint firstAttribute="trailing" secondItem="S2O-fv-9Vv" secondAttribute="trailing" constant="15" id="g47-kY-X1g"/>
+                                    <constraint firstItem="i7F-7R-4Wp" firstAttribute="top" secondItem="xI6-uG-sLU" secondAttribute="top" constant="20" id="nx0-d9-fLY"/>
+                                    <constraint firstAttribute="trailing" secondItem="i7F-7R-4Wp" secondAttribute="trailing" constant="15" id="r1d-SS-gya"/>
+                                    <constraint firstAttribute="trailing" secondItem="1P3-rB-hXI" secondAttribute="trailing" constant="15" id="rvX-2A-8JO"/>
+                                </constraints>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="Cloud Strage" identifier="" id="DcI-d9-vAy">
+                            <view key="view" id="uPB-Pq-QvP">
+                                <rect key="frame" x="10" y="33" width="434" height="306"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="Azure Strage" identifier="" id="h1n-2c-Hjp">
+                            <view key="view" id="abE-Z0-mjp">
+                                <rect key="frame" x="10" y="33" width="434" height="306"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+                <progressIndicator hidden="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7b4-Ii-eEU">
+                    <rect key="frame" x="162" y="107" width="16" height="16"/>
+                </progressIndicator>
+            </subviews>
+            <constraints>
+                <constraint firstItem="wa0-Du-Pzh" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="9yu-mh-sky"/>
+                <constraint firstItem="7b4-Ii-eEU" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="VOH-Si-1pz"/>
+                <constraint firstItem="7b4-Ii-eEU" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Vj5-O2-l6G"/>
+                <constraint firstAttribute="trailing" secondItem="wa0-Du-Pzh" secondAttribute="trailing" id="YA4-dG-Bi2"/>
+                <constraint firstItem="wa0-Du-Pzh" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="liu-Gz-O1K"/>
+                <constraint firstAttribute="bottom" secondItem="wa0-Du-Pzh" secondAttribute="bottom" id="nfk-Wt-Bfz"/>
+            </constraints>
+            <connections>
+                <outlet property="indicator" destination="7b4-Ii-eEU" id="Ygi-Dz-qyo"/>
+                <outlet property="s3AccessKeyInput" destination="TaW-oh-r5h" id="GlQ-Rc-98R"/>
+                <outlet property="s3SecretKeyInput" destination="I5G-dL-xE5" id="WQF-wt-poO"/>
+                <outlet property="s3SubmitBtn" destination="S2O-fv-9Vv" id="bam-3s-bjs"/>
+            </connections>
+            <point key="canvasLocation" x="44.5" y="62"/>
+        </customView>
+    </objects>
+</document>

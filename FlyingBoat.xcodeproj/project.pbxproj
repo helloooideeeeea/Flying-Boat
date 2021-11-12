@@ -11,6 +11,9 @@
 		804084552735376B0033A9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804084542735376B0033A9EE /* Assets.xcassets */; };
 		804084582735376B0033A9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804084562735376B0033A9EE /* Main.storyboard */; };
 		8040846027354A5B0033A9EE /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040845F27354A5B0033A9EE /* StatusBarController.swift */; };
+		8046658D273D17DA00EB96B1 /* RegisterCloudStorage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */; };
+		8046658F273D18DB00EB96B1 /* RegisterCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */; };
+		80466592273D2A6900EB96B1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80466591273D2A6900EB96B1 /* View.swift */; };
 		8063684C273A3FFE00416F88 /* FileProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684B273A3FFE00416F88 /* FileProvider.framework */; platformFilter = maccatalyst; };
 		8063684E273A400400416F88 /* FileProviderUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684D273A400400416F88 /* FileProviderUI.framework */; };
 		80636850273A402F00416F88 /* FinderSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684F273A402F00416F88 /* FinderSync.framework */; };
@@ -59,6 +62,9 @@
 		804084592735376B0033A9EE /* FlyingBoat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlyingBoat.entitlements; sourceTree = "<group>"; };
 		8040845F27354A5B0033A9EE /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		80408462273556D50033A9EE /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = System/Library/Frameworks/DiskArbitration.framework; sourceTree = SDKROOT; };
+		8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCloudStorage.xib; sourceTree = "<group>"; };
+		8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCloudStorage.swift; sourceTree = "<group>"; };
+		80466591273D2A6900EB96B1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		8063684B273A3FFE00416F88 /* FileProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileProvider.framework; path = System/Library/Frameworks/FileProvider.framework; sourceTree = SDKROOT; };
 		8063684D273A400400416F88 /* FileProviderUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileProviderUI.framework; path = System/Library/Frameworks/FileProviderUI.framework; sourceTree = SDKROOT; };
 		8063684F273A402F00416F88 /* FinderSync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FinderSync.framework; path = System/Library/Frameworks/FinderSync.framework; sourceTree = SDKROOT; };
@@ -118,6 +124,8 @@
 		8040844F273537690033A9EE /* FlyingBoat */ = {
 			isa = PBXGroup;
 			children = (
+				80466590273D2A3C00EB96B1 /* Extension */,
+				8046658A273D173C00EB96B1 /* UI */,
 				80408450273537690033A9EE /* AppDelegate.swift */,
 				8040845F27354A5B0033A9EE /* StatusBarController.swift */,
 				806368EB273A7EB000416F88 /* MainViewController.swift */,
@@ -139,6 +147,31 @@
 				8081D2E327367BA9008CE19C /* UniformTypeIdentifiers.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8046658A273D173C00EB96B1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8046658B273D175D00EB96B1 /* MainView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8046658B273D175D00EB96B1 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */,
+				8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		80466590273D2A3C00EB96B1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				80466591273D2A6900EB96B1 /* View.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		806368D4273A55A000416F88 /* Provider */ = {
@@ -241,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				804084552735376B0033A9EE /* Assets.xcassets in Resources */,
+				8046658D273D17DA00EB96B1 /* RegisterCloudStorage.xib in Resources */,
 				804084582735376B0033A9EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +298,9 @@
 				806368E4273A55C200416F88 /* FileProviderItem.swift in Sources */,
 				806368EA273A735000416F88 /* PersistManager.swift in Sources */,
 				806368E5273A55C200416F88 /* FileProviderEnumerator.swift in Sources */,
+				80466592273D2A6900EB96B1 /* View.swift in Sources */,
 				8040846027354A5B0033A9EE /* StatusBarController.swift in Sources */,
+				8046658F273D18DB00EB96B1 /* RegisterCloudStorage.swift in Sources */,
 				80408451273537690033A9EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

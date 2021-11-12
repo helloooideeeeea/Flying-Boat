@@ -8,47 +8,40 @@
 import AppKit
 import SotoS3
 
-class MainViewController:NSViewController {
+class MainViewController:NSViewController, NSWindowDelegate {
     
+    var subView: NSView?
+    
+    override func viewDidAppear() {
+        view.window?.delegate = self
+    }
     override func viewDidLoad() {
+                
+        // 表示するViewを選ぶ
+        subView = RegisterCloudStorage.createFromNib()! as NSView
+        guard let v = subView else {
+            fatalError()
+        }
+        
+        v.frame.origin = view.center(child: v)
+        view.addSubview(v)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(testUpdate),
                                                name: .StatusBarNotification,
                                                object: nil)
+    }
         
+    func windowDidResize(_ notification: Notification) {
+        guard let v = subView else {
+            fatalError()
+        }
+        v.frame.origin = view.center(child: v)
     }
     
+    
+    
     @objc func testUpdate() {
-        
         let keyPass: [String:String] = UserDefaults.standard.value(forKey: "keyPass") as! [String : String]
-        guard let key = keyPass["key"], let pass = keyPass["securet"] else {
-            return
-        }
-        
-        let client = AWSClient(
-            credentialProvider: .static(accessKeyId: key, secretAccessKey: pass),
-            httpClientProvider: .createNew
-        )
-        
-        let s3 = S3(client: client, region: .apnortheast1)
-        s3.listBuckets()
-            .whenSuccess{
-                response in
-                if let buckets = response.buckets {
-                    print("buckets:\(buckets)")
-                }
-                
-                do {
-                    try s3.client.syncShutdown()
-                } catch let error {
-                    print(error)
-                }
-            }
-        
-//            .whenFailure{
-//                error in
-//                    print("error:\(error)")
-//        }
     }
 }
