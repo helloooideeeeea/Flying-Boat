@@ -24,6 +24,14 @@ final class RegisterCloudStorage: NSView, NibLoadable {
     
     @IBOutlet weak var indicator: NSProgressIndicator!
     
+    @IBOutlet weak var regionCombo: NSPopUpButton!
+    
+    override func viewWillDraw() {
+        for region in [Region.afsouth1, Region.apeast1] {
+            regionCombo.menu?.addItem(NSMenuItem(title: region.rawValue, action: nil, keyEquivalent: ""))
+        }
+    }
+    
     @IBAction func s3SubmitClicked(_ sender: Any) {
         
         let key = s3AccessKeyInput.stringValue
@@ -34,31 +42,9 @@ final class RegisterCloudStorage: NSView, NibLoadable {
         
         indicator.isHidden = false
         
-        
-        let client = AWSClient(
-            credentialProvider: .static(accessKeyId: key, secretAccessKey: pass),
-            httpClientProvider: .createNew
-        )
 
-        let s3 = S3(client: client, region: .apnortheast1)
-        s3.listBuckets()
-            .whenSuccess{
-                response in
-                if let buckets = response.buckets {
-                    print("buckets:\(buckets)")
-                }
 
-                do {
-                    try s3.client.syncShutdown()
-                } catch let error {
-                    print(error)
-                }
-            }
-        
-//            .whenFailure{
-//                error in
-//                    print("error:\(error)")
-//        }
+
         
         
         self.delegate?.s3Buckets()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80162289273E833000C2C12D /* RestfulAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80162288273E833000C2C12D /* RestfulAPI.swift */; };
 		80408451273537690033A9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80408450273537690033A9EE /* AppDelegate.swift */; };
 		804084552735376B0033A9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804084542735376B0033A9EE /* Assets.xcassets */; };
 		804084582735376B0033A9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804084562735376B0033A9EE /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		80162288273E833000C2C12D /* RestfulAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestfulAPI.swift; sourceTree = "<group>"; };
 		8040844D273537690033A9EE /* FlyingBoat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyingBoat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80408450273537690033A9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		804084542735376B0033A9EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		8040844F273537690033A9EE /* FlyingBoat */ = {
 			isa = PBXGroup;
 			children = (
+				80162288273E833000C2C12D /* RestfulAPI.swift */,
 				80466590273D2A3C00EB96B1 /* Extension */,
 				8046658A273D173C00EB96B1 /* UI */,
 				80408450273537690033A9EE /* AppDelegate.swift */,
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80162289273E833000C2C12D /* RestfulAPI.swift in Sources */,
 				806368EC273A7EB000416F88 /* MainViewController.swift in Sources */,
 				806368E3273A55C200416F88 /* FileProviderExtension.swift in Sources */,
 				806368E4273A55C200416F88 /* FileProviderItem.swift in Sources */,
