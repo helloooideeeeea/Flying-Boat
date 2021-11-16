@@ -11,28 +11,29 @@ import SotoS3
 class MainViewController:NSViewController, NSWindowDelegate {
     
     var subView: NSView?
-    
-    override func viewDidAppear() {
-        view.window?.delegate = self
-    }
-    override func viewDidLoad() {
-                
-        // 表示するViewを選ぶ
-        subView = RegisterCloudStorage.createFromNib()! as NSView
-        guard let v = subView else {
-            fatalError()
-        }
         
-        v.frame.origin = view.center(child: v)
-        view.addSubview(v)
+    override func viewDidLoad() {
+        
+        // 表示するViewControllerを選ぶ
+        subView = RegisterCloudStorage.createFromNib()! as NSView
+        view.addSubview(subView!)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(testUpdate),
                                                name: .StatusBarNotification,
                                                object: nil)
     }
+    
+    override func viewDidAppear() {
+        view.window?.delegate = self
+        resizeView()
+    }
         
     func windowDidResize(_ notification: Notification) {
+        resizeView()
+    }
+    
+    func resizeView() {
         guard let v = subView else {
             fatalError()
         }
@@ -40,8 +41,17 @@ class MainViewController:NSViewController, NSWindowDelegate {
     }
     
     
-    
     @objc func testUpdate() {
-        let keyPass: [String:String] = UserDefaults.standard.value(forKey: "keyPass") as! [String : String]
+        
+    }
+}
+
+extension MainViewController: CloudStrageDelegate {
+    
+    func fetchedS3Buckets(buckts: S3.ListBucketsOutput?, error: Error?) {
+        
+        // Viewの切り替え
+        
+        
     }
 }

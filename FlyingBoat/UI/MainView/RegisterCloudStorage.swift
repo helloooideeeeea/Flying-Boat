@@ -9,7 +9,7 @@ import AppKit
 import SotoS3
 
 protocol CloudStrageDelegate {
-    func s3Buckets()
+    func fetchedS3Buckets(buckts: S3.ListBucketsOutput?, error: Error?)
 }
 
 final class RegisterCloudStorage: NSView, NibLoadable {
@@ -42,12 +42,14 @@ final class RegisterCloudStorage: NSView, NibLoadable {
         
         indicator.isHidden = false
         
-
-
-
-        
-        
-        self.delegate?.s3Buckets()
+        RestfulAPI.s3listBuckets(
+            onSuccess: { res in
+                self.delegate?.fetchedS3Buckets(buckts: res, error: nil)
+            },
+            onFailure: { error in
+                self.delegate?.fetchedS3Buckets(buckts: nil, error: error)
+            }
+        )
     }
 }
 
