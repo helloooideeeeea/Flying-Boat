@@ -12,9 +12,7 @@
 		804084552735376B0033A9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804084542735376B0033A9EE /* Assets.xcassets */; };
 		804084582735376B0033A9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804084562735376B0033A9EE /* Main.storyboard */; };
 		8040846027354A5B0033A9EE /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040845F27354A5B0033A9EE /* StatusBarController.swift */; };
-		8046658D273D17DA00EB96B1 /* RegisterCloudStorage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */; };
-		8046658F273D18DB00EB96B1 /* RegisterCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */; };
-		80466592273D2A6900EB96B1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80466591273D2A6900EB96B1 /* View.swift */; };
+		804104D327449AEA00B8FF6A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804104D227449AEA00B8FF6A /* Alert.swift */; };
 		8063684C273A3FFE00416F88 /* FileProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684B273A3FFE00416F88 /* FileProvider.framework */; platformFilter = maccatalyst; };
 		8063684E273A400400416F88 /* FileProviderUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684D273A400400416F88 /* FileProviderUI.framework */; };
 		80636850273A402F00416F88 /* FinderSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8063684F273A402F00416F88 /* FinderSync.framework */; };
@@ -29,6 +27,9 @@
 		806368E8273A6BF900416F88 /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = 806368E7273A6BF900416F88 /* SotoS3 */; };
 		806368EA273A735000416F88 /* PersistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806368E9273A735000416F88 /* PersistManager.swift */; };
 		806368EC273A7EB000416F88 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806368EB273A7EB000416F88 /* MainViewController.swift */; };
+		806765842743AB7E00165983 /* AuthKeyPassRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806765832743AB7E00165983 /* AuthKeyPassRegisterViewController.swift */; };
+		806765862743AD8500165983 /* BucketsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806765852743AD8500165983 /* BucketsListViewController.swift */; };
+		8067658C2743C06100165983 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8067658B2743C06100165983 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +65,7 @@
 		804084592735376B0033A9EE /* FlyingBoat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlyingBoat.entitlements; sourceTree = "<group>"; };
 		8040845F27354A5B0033A9EE /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		80408462273556D50033A9EE /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = System/Library/Frameworks/DiskArbitration.framework; sourceTree = SDKROOT; };
-		8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterCloudStorage.xib; sourceTree = "<group>"; };
-		8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCloudStorage.swift; sourceTree = "<group>"; };
-		80466591273D2A6900EB96B1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		804104D227449AEA00B8FF6A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8063684B273A3FFE00416F88 /* FileProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileProvider.framework; path = System/Library/Frameworks/FileProvider.framework; sourceTree = SDKROOT; };
 		8063684D273A400400416F88 /* FileProviderUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileProviderUI.framework; path = System/Library/Frameworks/FileProviderUI.framework; sourceTree = SDKROOT; };
 		8063684F273A402F00416F88 /* FinderSync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FinderSync.framework; path = System/Library/Frameworks/FinderSync.framework; sourceTree = SDKROOT; };
@@ -78,6 +77,9 @@
 		806368DC273A55A000416F88 /* Provider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Provider.entitlements; sourceTree = "<group>"; };
 		806368E9273A735000416F88 /* PersistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistManager.swift; sourceTree = "<group>"; };
 		806368EB273A7EB000416F88 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		806765832743AB7E00165983 /* AuthKeyPassRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthKeyPassRegisterViewController.swift; sourceTree = "<group>"; };
+		806765852743AD8500165983 /* BucketsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketsListViewController.swift; sourceTree = "<group>"; };
+		8067658B2743C06100165983 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8081D2E327367BA9008CE19C /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -128,7 +130,6 @@
 			children = (
 				80162288273E833000C2C12D /* RestfulAPI.swift */,
 				80466590273D2A3C00EB96B1 /* Extension */,
-				8046658A273D173C00EB96B1 /* UI */,
 				80408450273537690033A9EE /* AppDelegate.swift */,
 				8040845F27354A5B0033A9EE /* StatusBarController.swift */,
 				806368EB273A7EB000416F88 /* MainViewController.swift */,
@@ -136,6 +137,8 @@
 				804084562735376B0033A9EE /* Main.storyboard */,
 				804084592735376B0033A9EE /* FlyingBoat.entitlements */,
 				806368E9273A735000416F88 /* PersistManager.swift */,
+				806765832743AB7E00165983 /* AuthKeyPassRegisterViewController.swift */,
+				806765852743AD8500165983 /* BucketsListViewController.swift */,
 			);
 			path = FlyingBoat;
 			sourceTree = "<group>";
@@ -152,27 +155,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8046658A273D173C00EB96B1 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				8046658B273D175D00EB96B1 /* MainView */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		8046658B273D175D00EB96B1 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				8046658E273D18DB00EB96B1 /* RegisterCloudStorage.swift */,
-				8046658C273D17DA00EB96B1 /* RegisterCloudStorage.xib */,
-			);
-			path = MainView;
-			sourceTree = "<group>";
-		};
 		80466590273D2A3C00EB96B1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				80466591273D2A6900EB96B1 /* View.swift */,
+				8067658B2743C06100165983 /* ViewController.swift */,
+				804104D227449AEA00B8FF6A /* Alert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -277,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				804084552735376B0033A9EE /* Assets.xcassets in Resources */,
-				8046658D273D17DA00EB96B1 /* RegisterCloudStorage.xib in Resources */,
 				804084582735376B0033A9EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +283,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				80162289273E833000C2C12D /* RestfulAPI.swift in Sources */,
+				806765842743AB7E00165983 /* AuthKeyPassRegisterViewController.swift in Sources */,
+				806765862743AD8500165983 /* BucketsListViewController.swift in Sources */,
 				806368EC273A7EB000416F88 /* MainViewController.swift in Sources */,
+				8067658C2743C06100165983 /* ViewController.swift in Sources */,
 				806368E3273A55C200416F88 /* FileProviderExtension.swift in Sources */,
+				804104D327449AEA00B8FF6A /* Alert.swift in Sources */,
 				806368E4273A55C200416F88 /* FileProviderItem.swift in Sources */,
 				806368EA273A735000416F88 /* PersistManager.swift in Sources */,
 				806368E5273A55C200416F88 /* FileProviderEnumerator.swift in Sources */,
-				80466592273D2A6900EB96B1 /* View.swift in Sources */,
 				8040846027354A5B0033A9EE /* StatusBarController.swift in Sources */,
-				8046658F273D18DB00EB96B1 /* RegisterCloudStorage.swift in Sources */,
 				80408451273537690033A9EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

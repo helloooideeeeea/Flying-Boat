@@ -58,7 +58,11 @@ class RestfulAPI {
                     onFailure(err)
                 }
             }
+            do {
+                try? s3.client.syncShutdown()
+            } catch let error {
+                print(error)
+            }
         }
     }
-    
 }

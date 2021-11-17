@@ -6,52 +6,37 @@
 //
 
 import AppKit
-import SotoS3
 
 class MainViewController:NSViewController, NSWindowDelegate {
     
-    var subView: NSView?
-        
     override func viewDidLoad() {
-        
-        // 表示するViewControllerを選ぶ
-        subView = RegisterCloudStorage.createFromNib()! as NSView
-        view.addSubview(subView!)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(testUpdate),
                                                name: .StatusBarNotification,
                                                object: nil)
-    }
-    
-    override func viewDidAppear() {
-        view.window?.delegate = self
-        resizeView()
-    }
         
-    func windowDidResize(_ notification: Notification) {
-        resizeView()
     }
-    
-    func resizeView() {
-        guard let v = subView else {
-            fatalError()
-        }
-        v.frame.origin = view.center(child: v)
-    }
-    
     
     @objc func testUpdate() {
         
     }
-}
-
-extension MainViewController: CloudStrageDelegate {
     
-    func fetchedS3Buckets(buckts: S3.ListBucketsOutput?, error: Error?) {
-        
-        // Viewの切り替え
-        
-        
+    override func viewDidAppear() {
+        view.window?.delegate = self
+        present(toVC: authKeyPassVC())
+    }
+    
+    func windowDidResize(_ notification: Notification) {
+    }
+    
+    func authKeyPassVC() -> AuthKeyPassRegisterViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("AuthKeyPassRegisterViewController")
+        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? AuthKeyPassRegisterViewController else {
+            fatalError("AuthKeyPassRegisterViewController is not found in Main.storyboard")
+        }
+        return vc
     }
 }
+
