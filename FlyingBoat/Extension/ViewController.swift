@@ -10,25 +10,13 @@ import AppKit
 extension NSViewController {
     
     func present(toVC: NSViewController) {
-        toVC.view.wantsLayer = true
-        toVC.view.layerContentsRedrawPolicy = .onSetNeedsDisplay
-        view.addSubview(toVC.view)
-        addChild(toVC)
-        toVC.view.frame = view.frame
-    }
-    
-    func presentAnimate(toVC: NSViewController) {
+        guard let splitVC = self.parent as? NSSplitViewController else {
+            return
+        }
         
-        toVC.view.wantsLayer = true
-        toVC.view.layerContentsRedrawPolicy = .onSetNeedsDisplay
-        toVC.view.alphaValue = 0
-        view.addSubview(toVC.view)
-        addChild(toVC)
-        toVC.view.frame = view.frame
+        let item = NSSplitViewItem(viewController: toVC)
+        splitVC.removeSplitViewItem(splitVC.splitViewItems[1])
+        splitVC.addSplitViewItem(item)
         
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 1.0
-            toVC.view.animator().alphaValue = 1
-        }, completionHandler:nil)
     }
 }

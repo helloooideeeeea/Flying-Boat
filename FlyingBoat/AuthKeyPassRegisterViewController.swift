@@ -54,11 +54,12 @@ class AuthKeyPassRegisterViewController: NSViewController {
         )
     }
     
-    override func viewDidAppear() {
+    override func viewDidLoad() {
         for region in [Region.apnortheast1, Region.afsouth1, Region.apeast1] {
             regionCombo.menu?.addItem(NSMenuItem(title: region.rawValue, action: nil, keyEquivalent: ""))
         }
     }
+    
     
     func bucketsListVC() -> BucketsListViewController {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)

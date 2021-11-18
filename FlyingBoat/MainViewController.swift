@@ -7,7 +7,7 @@
 
 import AppKit
 
-class MainViewController:NSViewController, NSWindowDelegate {
+class MainViewController:NSViewController {
     
     override func viewDidLoad() {
         
@@ -23,12 +23,10 @@ class MainViewController:NSViewController, NSWindowDelegate {
     }
     
     override func viewDidAppear() {
-        view.window?.delegate = self
+        
         present(toVC: authKeyPassVC())
     }
-    
-    func windowDidResize(_ notification: Notification) {
-    }
+        
     
     func authKeyPassVC() -> AuthKeyPassRegisterViewController {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
