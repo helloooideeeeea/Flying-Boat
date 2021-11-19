@@ -7,12 +7,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-                
-        let domain = NSFileProviderDomain(identifier: NSFileProviderDomainIdentifier(Bundle.main.bundleIdentifier!), displayName: "Flying Board")
         
-        NSFileProviderManager.add(domain, completionHandler: { error in
-            print("file provider domain: \(error as NSError?)")
-        })
+        
+        let ret = PersistManager.fetchPath(context: persistentContainer.viewContext, nil)
+        if let error = ret.error {
+            // TODO error
+            print(error)
+        }
+        
+        if let cons = ret.cons, cons.count > 0 {
+            let con = cons[0]
+            let domain = NSFileProviderDomain(identifier: NSFileProviderDomainIdentifier(Bundle.main.bundleIdentifier!), displayName: con.src_path!)
+            NSFileProviderManager.add(domain, completionHandler: { error in
+                print("file provider domain: \(error as NSError?)")
+            })
+        }
+        
         
 //        FileProviderExtension(domain: domain)
         

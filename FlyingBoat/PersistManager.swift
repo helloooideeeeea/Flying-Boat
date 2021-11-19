@@ -19,6 +19,18 @@ enum PersistError: Error {
 
 class PersistManager {
     
+    static func fetchPath(context: NSManagedObjectContext?, _ callback: ((NSFetchRequest<NSFetchRequestResult>) -> Void)?) -> (cons:[Connections]?, error:Error?) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Connections")
+        callback?(request)
+        do {
+            let cons = try context?.fetch(request) as? [Connections]
+            return (cons, nil)
+        } catch let error {
+            return (nil, error)
+        }
+    }
+    
+    
     static func savePath(context: NSManagedObjectContext?, accessKey: String?, secureKey: String?, region: String?, storageType: Int16, srcPath: String?, dstPath:String?) -> Error? {
         
         guard let context = context, let ak = accessKey, let sk = secureKey, let rgn = region, let srcPath = srcPath else {

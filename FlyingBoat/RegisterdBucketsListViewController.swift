@@ -19,13 +19,19 @@ class RegisterdBucketsListViewController: NSViewController {
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Connections")
-        request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: false),NSSortDescriptor(key: "created_at", ascending: false)]
-        do {
-            cons = try context?.fetch(request) as? [Connections]
-            tableView.reloadData()
-        } catch {}
         
+        let ret = PersistManager.fetchPath(context: context, { request in
+            request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: false),NSSortDescriptor(key: "created_at", ascending: false)]
+        })
+        
+        if let error = ret.error {
+            // TODO エラー
+            print(error)
+            return
+        }
+        
+        cons = ret.cons
+        tableView.reloadData()
     }
 }
 
