@@ -7,11 +7,56 @@
 
 import AppKit
 import SotoS3
+import CoreData
 
 class BucketsListViewController: NSViewController {
     
+    var context: NSManagedObjectContext? = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     let bucketIcon: NSImage = NSImage(named:NSImage.Name("StatusBarButtonImage"))!
+    
+    var accessKey: String?
+    var secureKey: String?
+    var region: String?
     var buckets:[S3.Bucket]?
+    
+    let formatter = DateFormatter()
+    
+    @IBAction func selectClicked(_ sender: Any) {
+        let index = tableView.selectedRow
+        if index >= 0 {
+            guard let context = context, let buckets = buckets, let ak = accessKey, let sk = secureKey, let rgn = region else {
+                return
+            }
+            let conn = Connections(context: context)
+            conn.uuid = UUID()
+            conn.src_path = buckets[index].name
+            conn.src_type = StorageType.s3.rawValue
+//            conn.dst_path = ""
+            formatter.dateFormat = "yyyyMMddHHmmss"
+            conn.created_at = Int64(formatter.string(from: Date()))!
+            conn.access_key = ak
+            conn.secure_key = sk
+            conn.priority = 0
+            conn.region = rgn
+            do {
+                try context.save()
+                present(toVC: RBLVC())
+            }
+            catch {
+                guard let window = view.window else {
+                    return
+                }
+                let alert = NSAlert()
+                alert.simpleWarningDialog(window: window, message: "登録エラー", onClick: {
+                    return
+                })
+            }
+        }
+    }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        
+    }
     
     @IBOutlet weak var tableView: NSTableView!
     
@@ -23,6 +68,15 @@ class BucketsListViewController: NSViewController {
     
     func reloadBucketList() {
         tableView.reloadData()
+    }
+    
+    func RBLVC() -> RegisterdBucketsListViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("RegisterdBucketsListViewController")
+        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? RegisterdBucketsListViewController else {
+            fatalError("RegisterdBucketsListViewController is not found in Main.storyboard")
+        }
+        return vc
     }
 }
 

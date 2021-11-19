@@ -30,6 +30,8 @@
 		806765842743AB7E00165983 /* AuthKeyPassRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806765832743AB7E00165983 /* AuthKeyPassRegisterViewController.swift */; };
 		806765862743AD8500165983 /* BucketsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806765852743AD8500165983 /* BucketsListViewController.swift */; };
 		8067658C2743C06100165983 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8067658B2743C06100165983 /* ViewController.swift */; };
+		80BEE59E27463F9B00D5EDF0 /* RegisterdBucketsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BEE59D27463F9B00D5EDF0 /* RegisterdBucketsListViewController.swift */; };
+		80BEE5A12746510000D5EDF0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80BEE59F2746510000D5EDF0 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		806765852743AD8500165983 /* BucketsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketsListViewController.swift; sourceTree = "<group>"; };
 		8067658B2743C06100165983 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8081D2E327367BA9008CE19C /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		80BEE59D27463F9B00D5EDF0 /* RegisterdBucketsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterdBucketsListViewController.swift; sourceTree = "<group>"; };
+		80BEE5A02746510000D5EDF0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		80408444273537680033A9EE = {
 			isa = PBXGroup;
 			children = (
+				80BEE59F2746510000D5EDF0 /* Model.xcdatamodeld */,
 				8040844F273537690033A9EE /* FlyingBoat */,
 				806368D4273A55A000416F88 /* Provider */,
 				8040844E273537690033A9EE /* Products */,
@@ -139,6 +144,7 @@
 				806368E9273A735000416F88 /* PersistManager.swift */,
 				806765832743AB7E00165983 /* AuthKeyPassRegisterViewController.swift */,
 				806765852743AD8500165983 /* BucketsListViewController.swift */,
+				80BEE59D27463F9B00D5EDF0 /* RegisterdBucketsListViewController.swift */,
 			);
 			path = FlyingBoat;
 			sourceTree = "<group>";
@@ -283,7 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				80162289273E833000C2C12D /* RestfulAPI.swift in Sources */,
+				80BEE59E27463F9B00D5EDF0 /* RegisterdBucketsListViewController.swift in Sources */,
 				806765842743AB7E00165983 /* AuthKeyPassRegisterViewController.swift in Sources */,
+				80BEE5A12746510000D5EDF0 /* Model.xcdatamodeld in Sources */,
 				806765862743AD8500165983 /* BucketsListViewController.swift in Sources */,
 				806368EC273A7EB000416F88 /* MainViewController.swift in Sources */,
 				8067658C2743C06100165983 /* ViewController.swift in Sources */,
@@ -602,6 +610,19 @@
 			productName = SotoS3;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		80BEE59F2746510000D5EDF0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80BEE5A02746510000D5EDF0 /* Model.xcdatamodel */,
+			);
+			currentVersion = 80BEE5A02746510000D5EDF0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80408445273537680033A9EE /* Project object */;
 }

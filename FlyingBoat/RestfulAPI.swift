@@ -14,37 +14,21 @@ enum RestfulAPIError: Error {
 
 class RestfulAPI {
     
-    private static func s3Credential() -> (client:AWSClient?, region:String?, err:Error?) {
-        
-        // TODO Persist Managerで書き直す
-        let keyPass: [String:String] = UserDefaults.standard.value(forKey: "keyPass") as! [String : String]
-        guard let key = keyPass["key"], let pass = keyPass["securet"], let region = keyPass["region"] else {
-            return (nil, nil, RestfulAPIError.CredentialNotFound)
-        }
-
+    private static func s3Credential(accessKey: String, secureKey: String, region: String) -> (client:AWSClient, region:String) {
         return (
             AWSClient(
-                credentialProvider: .static(accessKeyId: key, secretAccessKey: pass),
+                credentialProvider: .static(accessKeyId: accessKey, secretAccessKey: secureKey),
                 httpClientProvider: .createNew
             ),
-            region,
-            nil
+            region
         )
     }
     
-    static func s3listBuckets(onSuccess: @escaping(S3.ListBucketsOutput) -> Void, onFailure: @escaping(Error?) -> Void) -> Void {
+    static func s3listBuckets(accessKey: String, secureKey: String, region: String, onSuccess: @escaping(S3.ListBucketsOutput) -> Void, onFailure: @escaping(Error?) -> Void) -> Void {
         
-        let credential = s3Credential()
-        guard let client = credential.client, let region = credential.region else {
-            if let err = credential.err {
-                onFailure(err)
-                return
-            } else {
-                fatalError()
-            }
-        }
+        let credential = s3Credential(accessKey: accessKey, secureKey: secureKey, region: region)
         
-        let s3 = S3(client: client, region: Region.init(rawValue: region))
+        let s3 = S3(client: credential.client, region: Region.init(rawValue: credential.region))
         let futureResponse = s3.listBuckets()
         futureResponse.whenComplete { result in
             switch result {

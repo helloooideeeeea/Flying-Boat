@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum StorageType {
-    case s3
-    case cloudStroge
+enum StorageType: Int16 {
+    case s3 = 1
+    case cloudStroge = 2
 }
 
 class PersistManager {

@@ -25,17 +25,23 @@ class AuthKeyPassRegisterViewController: NSViewController {
         let key = s3AccessKeyInput.stringValue
         let pass = s3SecretKeyInput.stringValue
         let region = regionCombo.titleOfSelectedItem
-        
-        // key pass 保存
-        UserDefaults.standard.set(["key":key, "securet":pass, "region":region], forKey: "keyPass")
+        guard let rgn = region else {
+            return
+        }
         
         indicator.isHidden = false
         
         RestfulAPI.s3listBuckets(
+            accessKey: key,
+            secureKey: pass,
+            region: rgn,
             onSuccess: { res in
                 DispatchQueue.main.sync {
                     let vc = self.bucketsListVC()
                     vc.buckets = res.buckets
+                    vc.accessKey = key
+                    vc.secureKey = pass
+                    vc.region = rgn
                     self.present(toVC: vc)
                 }
             },
