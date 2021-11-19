@@ -24,33 +24,20 @@ class BucketsListViewController: NSViewController {
     @IBAction func selectClicked(_ sender: Any) {
         let index = tableView.selectedRow
         if index >= 0 {
-            guard let context = context, let buckets = buckets, let ak = accessKey, let sk = secureKey, let rgn = region else {
+            guard let window = view.window, let buckets = buckets else {
                 return
             }
-            let conn = Connections(context: context)
-            conn.uuid = UUID()
-            conn.src_path = buckets[index].name
-            conn.src_type = StorageType.s3.rawValue
-//            conn.dst_path = ""
-            formatter.dateFormat = "yyyyMMddHHmmss"
-            conn.created_at = Int64(formatter.string(from: Date()))!
-            conn.access_key = ak
-            conn.secure_key = sk
-            conn.priority = 0
-            conn.region = rgn
-            do {
-                try context.save()
-                present(toVC: RBLVC())
-            }
-            catch {
-                guard let window = view.window else {
-                    return
-                }
+            
+            let error = PersistManager.savePath(context: context, accessKey: accessKey, secureKey: secureKey, region: region, storageType: StorageType.s3.rawValue, srcPath: buckets[index].name, dstPath: nil)
+            
+            if let err = error {
                 let alert = NSAlert()
                 alert.simpleWarningDialog(window: window, message: "登録エラー", onClick: {
                     return
                 })
             }
+            
+            present(toVC: RegisterdBucketsListViewController.initiate())
         }
     }
     
@@ -70,14 +57,7 @@ class BucketsListViewController: NSViewController {
         tableView.reloadData()
     }
     
-    func RBLVC() -> RegisterdBucketsListViewController {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("RegisterdBucketsListViewController")
-        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? RegisterdBucketsListViewController else {
-            fatalError("RegisterdBucketsListViewController is not found in Main.storyboard")
-        }
-        return vc
-    }
+
 }
 
 extension BucketsListViewController: NSTableViewDataSource {
@@ -126,4 +106,15 @@ extension BucketsListViewController: NSTableViewDelegate {
         return nil
     }
     
+}
+
+extension BucketsListViewController {
+    static func initiate() -> BucketsListViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("BucketsListViewController")
+        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? BucketsListViewController else {
+            fatalError("BucketsListViewController is not found in Main.storyboard")
+        }
+        return vc
+    }
 }

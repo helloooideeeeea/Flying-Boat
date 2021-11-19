@@ -6,35 +6,24 @@
 //
 
 import AppKit
+import CoreData
 
 class MainViewController:NSViewController {
-    
-    override func viewDidLoad() {
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(testUpdate),
-                                               name: .StatusBarNotification,
-                                               object: nil)
-        
-    }
-    
-    @objc func testUpdate() {
-        
-    }
+    var context: NSManagedObjectContext? = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     override func viewDidAppear() {
-        
-        present(toVC: authKeyPassVC())
-    }
-        
-    
-    func authKeyPassVC() -> AuthKeyPassRegisterViewController {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("AuthKeyPassRegisterViewController")
-        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? AuthKeyPassRegisterViewController else {
-            fatalError("AuthKeyPassRegisterViewController is not found in Main.storyboard")
+        if let context = context {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Connections")
+            do {
+                let cons = try context.fetch(request) as? [Connections]
+                if let cons = cons, cons.count > 0 {
+                    present(toVC: RegisterdBucketsListViewController.initiate())
+                    return
+                }
+            } catch {}
         }
-        return vc
+        
+        present(toVC: AuthKeyPassRegisterViewController.initiate())
     }
 }
 

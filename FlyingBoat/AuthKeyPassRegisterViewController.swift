@@ -37,7 +37,7 @@ class AuthKeyPassRegisterViewController: NSViewController {
             region: rgn,
             onSuccess: { res in
                 DispatchQueue.main.sync {
-                    let vc = self.bucketsListVC()
+                    let vc = BucketsListViewController.initiate()
                     vc.buckets = res.buckets
                     vc.accessKey = key
                     vc.secureKey = pass
@@ -64,14 +64,18 @@ class AuthKeyPassRegisterViewController: NSViewController {
         for region in [Region.apnortheast1, Region.afsouth1, Region.apeast1] {
             regionCombo.menu?.addItem(NSMenuItem(title: region.rawValue, action: nil, keyEquivalent: ""))
         }
+        
     }
     
+}
+
+extension AuthKeyPassRegisterViewController {
     
-    func bucketsListVC() -> BucketsListViewController {
+    static func initiate() -> AuthKeyPassRegisterViewController {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("BucketsListViewController")
-        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? BucketsListViewController else {
-            fatalError("BucketsListViewController is not found in Main.storyboard")
+        let identifier = NSStoryboard.SceneIdentifier("AuthKeyPassRegisterViewController")
+        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? AuthKeyPassRegisterViewController else {
+            fatalError("AuthKeyPassRegisterViewController is not found in Main.storyboard")
         }
         return vc
     }

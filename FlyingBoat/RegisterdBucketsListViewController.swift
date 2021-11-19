@@ -81,3 +81,14 @@ extension RegisterdBucketsListViewController : NSTableViewDelegate {
     }
     
 }
+
+extension RegisterdBucketsListViewController {
+    static func initiate() -> RegisterdBucketsListViewController {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let identifier = NSStoryboard.SceneIdentifier("RegisterdBucketsListViewController")
+        guard let vc = storyboard.instantiateController(withIdentifier: identifier) as? RegisterdBucketsListViewController else {
+            fatalError("RegisterdBucketsListViewController is not found in Main.storyboard")
+        }
+        return vc
+    }
+}
